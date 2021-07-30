@@ -1,0 +1,42 @@
+.main {
+  padding: 30px;
+}
+h2 {
+  font-weight: 400;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+.main__title {
+  width: 100%;
+}
+.photographers-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.galery {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  &__sort {
+    width: 100%;
+  }
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding: 15px;
+    flex-wrap: wrap;
+  }
+}
+
+
+.lightbox {
+  display: none;
+}

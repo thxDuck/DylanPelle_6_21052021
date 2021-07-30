@@ -1,0 +1,12 @@
+@import "utils/variables.scss";
+@import "utils/mixins.scss";
+@import "utils/placeholders.scss";
+@import "utils/animations.scss";
+@import "utils/functions.scss";
+
+@import "components/components.scss";
+@import "layout/layout.scss";
+* {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #E5E5E5;
+}

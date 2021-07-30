@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Détail</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
+  </style>
+  <script src="https://kit.fontawesome.com/d189eddfe3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/public/css/style.css" />
+</head>
+
+<body>
+  <div class="main">
+    <header>
+      <a href="/index.html"><img src="/public/images/ressources/logo.png" alt="Logo FishEye" srcset="" /></a>
+    </header>
+
+    <main>
+      <section class="profile">
+        <div class="profile__description">
+          <h1>Mimi Keeal</h1>
+          <p class="localisation">Bouzillé, France</p>
+          <blockquote>
+            Life is beautiful... birds sing blah blah blah...
+          </blockquote>
+          <div class="tags">
+            <a href=""><span class="tag">#art</span></a>
+            <a href=""><span class="tag">#art</span></a>
+            <a href=""><span class="tag">#art</span></a>
+          </div>
+        </div>
+
+        <div class="profile__action">
+          <button type="button" class="btn action-contact">
+            Contactez-moi
+          </button>
+        </div>
+
+        <div class="profile__photo">
+          <img class="profilePic--rounded" src="/public/images/photographers/Mimi/Portrait_Nora.jpg" alt="" />
+        </div>
+      </section>
+
+      <section class="galery">
+
+
+
+
+
+        <span class="galery__sort">
+          <label for="galery-sort">Trier par</label>
+          <select name="galery-sort" id="sort-media">
+            <option value="popularity" selected>
+              Popularité
+
+            </option>
+            <option value="date">Date</option>
+            <option value="alphabetic">Titre</option>
+          </select>
+        </span>
+
+
+        <!-- 
+        <div role="button" tabindex="0" id="listbox-galery" aria-haspopup="listbox" aria-expanded="true" aria-label="Sort by">
+          <div role="listbox" aria-activedescendant="popularity" aria-selected="true" aria-labelledby="" id="popularity">Popularité</div>
+          <div role="listbox" id="date">Date</div>
+          <div role="option" id="title">Titre</div>
+        </div> -->
+
+
+
+
+        <!-- Je suis en train d'essayer de faire la même chose que le select du w3c  => 
+<!-- * https://www.w3.org/TR/wai-aria-practices-1.1/examples/listbox/listbox-collapsible.html 
+
+
+
+        <div class="galery-sort">
+          <button aria-haspopup="listbox" class="btn" aria-labelledby="sort-btn sort-list" id="sort-btn">Popularité</button>
+          <ul id="exp_elem_list" tabindex="-1" role="listbox" aria-labelledby="sort-list" class=" hidden" aria-activedescendant="popularity">
+            <li id="popularity" role="option" aria-selected="true" class=" focused">Popularité</li>
+            <li id="date" role="option">Date</li>
+            <li id="alpha" role="option">Titre</li>
+          </ul>
+
+        </div> -->
+
+
+
+
+
+
+
+
+
+        <div class="galery__content">
+
+          <article class="galery__item">
+            <a href="#" class="galery__item__photo">
+              <img src="../public/images/photographers/Mimi/Animals_Rainbow.jpg" alt="">
+            </a>
+            <div class="galery__item__infos">
+              <p class="galery__item__infos--title">Arc-en-ciel</p>
+              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
+            </div>
+          </article>
+
+          <article class="galery__item">
+            <a href="#" class="galery__item__photo">
+              <img src="../public/images/photographers/Mimi/Event_BenevidesWedding.jpg" alt="">
+
+            </a>
+            <div class="galery__item__infos">
+              <p class="galery__item__infos--title">Arc-en-ciel</p>
+              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
+            </div>
+          </article>
+
+          <article class="galery__item">
+            <a href="#" class="galery__item__photo">
+              <img src="../public/images/photographers/Mimi/Event_PintoWedding.jpg" alt="">
+            </a>
+            <div class="galery__item__infos">
+              <p class="galery__item__infos--title">Arc-en-ciel</p>
+              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
+            </div>
+          </article>
+
+          <article class="galery__item">
+            <a href="#" class="galery__item__photo">
+              <img src="../public/images/photographers/Mimi/Event_SeasideWedding.jpg" alt="">
+
+            </a>
+            <div class="galery__item__infos">
+              <p class="galery__item__infos--title">Arc-en-ciel</p>
+              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
+            </div>
+          </article>
+
+          <article class="galery__item">
+            <a href="#" class="galery__item__photo">
+              <img src="../public/images/photographers/Mimi/Portrait_Wednesday.jpg" alt="">
+
+            </a>
+            <div class="galery__item__infos">
+              <p class="galery__item__infos--title">Arc-en-ciel</p>
+              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
+            </div>
+          </article>
+
+          <article class="galery__item">
+            <a href="#" class="galery__item__photo">
+              <img src="../public/images/photographers/Mimi/Travel_Lonesome.jpg" alt="">
+
+            </a>
+            <div class="galery__item__infos">
+              <p class="galery__item__infos--title">Arc-en-ciel</p>
+              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
+            </div>
+          </article>
+
+
+        </div>
+
+
+
+      </section>
+      <div class="complementary__infos">
+        <p class="complementary__infos--popularity">297 081<i class="fas fa-heart" aria-label="likes"></i></p>
+        <p class="complementary__infos--price">300€/jour</p>
+      </div>
+
+      <section class="lightbox">
+        <div class="media">
+          <div class="media__action--left">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div class="media__media"></div>
+          <div class="media__action--left">
+            <i class="fas fa-times"></i>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+
+      </section>
+
+
+
+
+
+
+
+    </main>
+  </div>
+</body>
+
+<script type="module" src="../js/main.js"></script>
+<!-- <script type="module" src="../js/controller/home.js"></script> -->
+<!-- <script type="module" src="../js/main.js"></script>
+<script type="module" src="../js/main.js"></script> -->
+<!-- <script type="text/javascript" src="../js/controller/controller.js"></script>
+<script type="text/javascript">Home.initHome()</script> -->
+
+</html>
+
+
+<!-- 
+IMGs
+
+<img src="../public/images/photographers/Mimi/Portrait_Background.jpg" alt="">
+<img src="../public/images/photographers/Mimi/profile_MimiKeel.jpg" alt="">
+<img src="../public/images/photographers/Mimi/Travel_HillsideColor.jpg" alt="">
+
+ -->

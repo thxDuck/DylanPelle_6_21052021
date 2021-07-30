@@ -1,0 +1,201 @@
+.btn {
+  @extend %roundedBox;
+  &:hover {
+    @extend %focusBtn;
+  }
+  &:focus-within {
+    @extend %focusBtn;
+  }
+}
+
+.tag {
+  @extend %tag;
+  &:hover {
+    @extend %focusTag;
+  }
+  &:focus-within {
+    @extend %focusTag;
+  }
+}
+a {
+  text-decoration: none;
+}
+.tag-list {
+  display: flex;
+
+  list-style: none;
+  text-transform: capitalize;
+}
+// Titles / textes
+h1 {
+  color: $txt_color_secondary;
+  // font-size: 36px;
+  font-weight: 400;
+}
+h2 {
+  // font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 47px;
+  letter-spacing: 0em;
+  text-align: center;
+
+  color: $txt_color_primary;
+}
+
+.localisation {
+  color: $txt_color_secondary;
+  font-weight: 400;
+  // font-size: 13px;
+}
+.slogan {
+  font-size: 0.9rem;
+}
+.price {
+  @extend %text-light;
+}
+
+.thmb-photographer {
+  min-width: 33%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  // height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__thumbnail {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 0px;
+    }
+  }
+  &__infos {
+    text-align: center;
+  }
+}
+
+.profilePic--rounded {
+  align-self: center;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+}
+
+// Profile photograhers
+
+.profile {
+  display: flex;
+  width: 100%;
+
+  &__description {
+    min-width: max-content;
+    display: flex;
+    flex-direction: column;
+    blockquote {
+      @extend %text-light;
+      margin-left: 0;
+    }
+  }
+
+  button {
+    margin-top: 30px;
+    width: max-content;
+  }
+  &__photo {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    scale: 0.8;
+  }
+}
+
+// I'm here, try to design select and options
+#sort-media {
+  @extend %roundedBox;
+  // margin-right: 15px;
+
+  option {
+    background-color: $bg_color_primary;
+  }
+}
+
+.galery-sort {
+  btn {
+    border-radius: 0;
+    font-size: 16px;
+    text-align: left;
+    padding: 5px 10px;
+    width: 150px;
+    position: relative;
+
+    &::after {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #aaa;
+      content: " ";
+      position: absolute;
+      right: 5px;
+      top: 10px;
+    }
+  }
+}
+
+.galery__item {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+  img {
+    height: 350px;
+    width: 350px;
+  }
+
+  &__infos {
+    display: flex;
+    justify-content: space-between;
+    color: $txt_color_secondary;
+    font-size: 1.3rem;
+    &--title {
+      font-weight: normal;
+    }
+    &--likes {
+      i {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.complementary__infos {
+  position: fixed;
+  bottom: 0px;
+  right: 15px;
+  display: flex;
+  width: 23%;
+  max-width: 25%;
+  min-width: 23%;
+
+  border-radius: $border_radius $border_radius 0 0;
+  background-color: $bg_color_secondary;
+  justify-content: space-around;
+  &--popularity {
+    background-color: $bg_color_secondary;
+    margin: 15px;
+    i {
+      background-color: $bg_color_secondary;
+      margin-left: 5px;
+    }
+  }
+  &--price {
+    background-color: $bg_color_secondary;
+    margin: 15px;
+  }
+  @media (max-width: 720px) {
+    display: none;
+  }
+}
