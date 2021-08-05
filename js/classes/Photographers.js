@@ -1,34 +1,39 @@
 
 import PhotographersDatas from "../models/Photographers.js";
+import MediaDatas from "../models/Medias.js";
 
 
 export default class Photographer {
-    constructor(id, username, city, country, tags, tagline, price, profilePic) {
-        this.id = id;
-        this.username = username;
-        this.city = city;
-        this.country = country;
-        this.tags = tags;
-        this.tagline = tagline;
-        this.price = price;
-        this.profilePic = profilePic;
-        this.totalLikes = this.getTotalLikes(this.id);
-    }
-    getTotalLikes(id) {
-        if (PhotographersDatas.findPhotographer(id)) {
-            console.log('enter find total likes');
-            let result = PhotographersDatas.aggregatesLikesByPhotographerId(this.id);
-            if (result.success) {
-                return result.totalLikes;
-            } else {
-                return result.msg;
-            }
+	constructor(id, username, city, country, tags, slogan, price, profilePic) {
+		this.id = id;
+		this.username = username;
+		this.city = city;
+		this.country = country;
+		this.tags = tags;
+		this.slogan = slogan;
+		this.price = price;
+		this.profilePic = profilePic;
+		this.totalLikes = this.getTotalLikes(this.id);
+	}
 
-        } else {
-            return "Auteur introuvable"
-        }
+	getlocalisation() {
+		let local = this.city + ', ' + this.country;
+		return local;
+	}
 
-    }
+	getTotalLikes() {
+		let likes = MediaDatas.aggregatesLikesByPhotographerId(this.id);
+		if (typeof likes === "number") {
+			return likes;
+		} else {
+			console.log('Likes undefined');ta
+			return 0;
+		}
+	}
+
+	static returnClass() {
+		return "Photographer";
+	}
 
 
 }
