@@ -23,7 +23,7 @@
   margin-left: 2px;
 }
 
-.tag:focus-within, .tag:hover {
+.tagSelected, .tag:focus-within, .tag:hover {
   color: white;
   background-color: #901C1C;
 }
@@ -34,6 +34,9 @@
   color: #757575;
 }
 
+.tag {
+  cursor: pointer;
+}
 a {
   text-decoration: none;
 }
@@ -41,7 +44,6 @@ a {
 .tag-list {
   display: flex;
   list-style: none;
-  text-transform: capitalize;
 }
 
 h1 {
@@ -102,6 +104,10 @@ h2 {
   display: flex;
   flex-direction: column;
 }
+.profile__description h1 {
+  font-size: 64px;
+  color: #D3573C;
+}
 .profile__description blockquote {
   margin-left: 0;
 }
@@ -146,19 +152,36 @@ h2 {
   flex-direction: column;
 }
 .galery__item img {
-  height: 350px;
   width: 350px;
+  height: 300px;
+}
+.galery__item video {
+  width: 350px;
+  height: 300px;
 }
 .galery__item__infos {
+  max-width: 350px;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   color: #901C1C;
-  font-size: 1.3rem;
+  font-size: 24px;
+}
+.galery__item__infos p {
+  margin-top: 3px;
 }
 .galery__item__infos--title {
-  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.galery__item__infos--likes {
+  display: flex;
+  margin-left: 15px;
+  cursor: pointer;
 }
 .galery__item__infos--likes i {
+  margin-top: 3px;
   margin-left: 5px;
 }
 
@@ -181,10 +204,15 @@ h2 {
 .complementary__infos--popularity i {
   background-color: #DB8876;
   margin-left: 5px;
+  font-style: normal;
 }
 .complementary__infos--price {
   background-color: #DB8876;
   margin: 15px;
+}
+.complementary__infos--price i {
+  background-color: #DB8876;
+  font-style: normal;
 }
 @media (max-width: 720px) {
   .complementary__infos {
@@ -228,7 +256,7 @@ header {
 .galery__content {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 15px;
   flex-wrap: wrap;
 }

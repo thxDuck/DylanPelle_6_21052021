@@ -97,7 +97,7 @@ const DB = {
 			"id": 9275938,
 			"photographerId": 82,
 			"title": "Wedding Gazebo",
-			"image": "Event-_WeddingGazebo.jpg",
+			"image": "Event_WeddingGazebo.jpg",
 			"tags": ["events"],
 			"likes": 69,
 			"date": "2018-02-22",
@@ -681,6 +681,10 @@ export default class MediaDatas {
 	}
 
 
+
+	/**
+	 * TODO : User reduce method
+	 */
 	static aggregatesLikesByPhotographerId(id) {
 		if (!!id) {
 			let allMedias = MediaDatas.findMediasByPhotographer(id);

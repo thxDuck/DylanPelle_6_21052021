@@ -22,7 +22,7 @@
     <main>
       <section class="profile">
         <div class="profile__description">
-          <h1>Mimi Keeal</h1>
+          <!-- <h1>Mimi Keeal</h1>
           <p class="localisation">Bouzillé, France</p>
           <blockquote>
             Life is beautiful... birds sing blah blah blah...
@@ -31,7 +31,7 @@
             <a href=""><span class="tag">#art</span></a>
             <a href=""><span class="tag">#art</span></a>
             <a href=""><span class="tag">#art</span></a>
-          </div>
+          </div> -->
         </div>
 
         <div class="profile__action">
@@ -41,7 +41,7 @@
         </div>
 
         <div class="profile__photo">
-          <img class="profilePic--rounded" src="/public/images/photographers/Mimi/Portrait_Nora.jpg" alt="" />
+          <!-- <img class="profilePic--rounded" src="/public/images/photographers/Mimi/Portrait_Nora.jpg" alt="" /> -->
         </div>
       </section>
 
@@ -97,11 +97,15 @@
 
 
 
-        <div class="galery__content">
+        <div class="galery__content" id="galery_list">
 
-          <!-- <article class="galery__item">
+   <!--        <article class="galery__item">
             <a href="#" class="galery__item__photo">
-              <img src="../public/images/photographers/Mimi/Animals_Rainbow.jpg" alt="">
+              <video controls>
+                <source src="../public/images/photographers/82/Art_Wooden_Horse_Sculpture.mp4" type="video/mp4">
+                <p>Votre navigateur ne prend pas en charge les vidéos HTML5.
+                   Voici <a href="myVideo.mp4">un lien pour télécharger la vidéo</a>.</p>
+              </video>
             </a>
             <div class="galery__item__infos">
               <p class="galery__item__infos--title">Arc-en-ciel</p>
@@ -170,8 +174,8 @@
 
       </section>
       <div class="complementary__infos">
-        <p class="complementary__infos--popularity">297 081<i class="fas fa-heart" aria-label="likes"></i></p>
-        <p class="complementary__infos--price">300€/jour</p>
+        <p class="complementary__infos--popularity" ><i id="nbLikes"></i> <i class="fas fa-heart" aria-label="likes"></i></p>
+        <p class="complementary__infos--price"><i id="price"></i></p>
       </div>
 
       <section class="lightbox">

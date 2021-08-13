@@ -1,8 +1,8 @@
 import * as Home from "./controller/home.js" ;
 import * as Details from "./controller/details.js" ;
 
-if (document.location.href.indexOf('index.html') !== -1) {
+if (document.getElementsByTagName('title')[0].innerHTML.indexOf('Home') !== -1) {
 	Home.initHome()
-} else if (document.location.href.indexOf('hotographer_details.html') !== -1) {
+} else if (document.getElementsByTagName('title')[0].innerHTML.indexOf('Détail') !== -1) {
 	Details.initDetails();
 }

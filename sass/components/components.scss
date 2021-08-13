@@ -9,6 +9,7 @@
 }
 
 .tag {
+  cursor: pointer;
   @extend %tag;
   &:hover {
     @extend %focusTag;
@@ -17,6 +18,12 @@
     @extend %focusTag;
   }
 }
+
+.tagSelected {
+  @extend %focusTag;
+  // background-color: $txt_color_secondarytxt_color_secondary;
+}
+
 a {
   text-decoration: none;
 }
@@ -24,7 +31,6 @@ a {
   display: flex;
 
   list-style: none;
-  text-transform: capitalize;
 }
 // Titles / textes
 h1 {
@@ -94,6 +100,12 @@ h2 {
     min-width: max-content;
     display: flex;
     flex-direction: column;
+
+    h1 {
+      font-size: 64px;
+      color: $txt_color_primary;
+    }
+
     blockquote {
       @extend %text-light;
       margin-left: 0;
@@ -149,22 +161,40 @@ h2 {
   margin: 15px;
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
+
+
   img {
-    height: 350px;
     width: 350px;
+    height: 300px;
+  }
+  video{
+    width: 350px;
+    height: 300px;
   }
 
   &__infos {
+    max-width: 350px;;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+
     color: $txt_color_secondary;
-    font-size: 1.3rem;
-    &--title {
-      font-weight: normal;
+    font-size: 24px;
+    p {
+      margin-top: 3px;
     }
-    &--likes {
+   
+  &--title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &--likes {
+    display: flex;
+    margin-left: 15px;
+    cursor: pointer;
       i {
+        margin-top: 3px;
         margin-left: 5px;
       }
     }
@@ -183,17 +213,23 @@ h2 {
   border-radius: $border_radius $border_radius 0 0;
   background-color: $bg_color_secondary;
   justify-content: space-around;
+
   &--popularity {
     background-color: $bg_color_secondary;
     margin: 15px;
     i {
       background-color: $bg_color_secondary;
       margin-left: 5px;
+      font-style: normal;
     }
   }
   &--price {
     background-color: $bg_color_secondary;
     margin: 15px;
+    i {
+      background-color: $bg_color_secondary;
+      font-style: normal;
+    }
   }
   @media (max-width: 720px) {
     display: none;

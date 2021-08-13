@@ -667,7 +667,14 @@ const PHOTOGRAPHER_DATAS = DB.photographers;
 export default class PhotographersDatas {
 
 	static findPhotographerById(id) {
-		let author = PHOTOGRAPHER_DATAS.find(photographer => photographer.id === id);
+		let author;
+		for (let i = 0; i < PHOTOGRAPHER_DATAS.length; i++) {
+			if (PHOTOGRAPHER_DATAS[i].id === id) {
+				author = PHOTOGRAPHER_DATAS[i];
+				break;
+			}
+
+		}
 		if (!!author) {
 			return author;
 		} else {
