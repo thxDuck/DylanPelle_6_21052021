@@ -680,7 +680,13 @@ export default class MediaDatas {
 		}
 	}
 
-
+	static findMediaById(photographerId, id) {
+		if (!!id) {
+			id = parseInt(id);
+			return MEDIA_DATAS.find(m => (m.photographerId === photographerId && m.id === id))
+			
+		}
+	}
 
 	/**
 	 * TODO : User reduce method

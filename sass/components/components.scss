@@ -88,6 +88,7 @@ h2 {
   height: 250px;
   width: 250px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 // Profile photograhers
@@ -111,7 +112,9 @@ h2 {
       margin-left: 0;
     }
   }
-
+  &__contact {
+    margin-left: 100px;
+  }
   button {
     margin-top: 30px;
     width: max-content;
@@ -120,7 +123,7 @@ h2 {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    scale: 0.8;
+    // scale: 0.8;
   }
 }
 
@@ -156,24 +159,36 @@ h2 {
     }
   }
 }
+@keyframes pop {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}
+.pop {
+  animation: 0.3s pop ease-in-out;
+}
 
 .galery__item {
   margin: 15px;
   display: flex;
   flex-direction: column;
 
-
-  img {
+  img,video {
     width: 350px;
     height: 300px;
+    object-fit: cover;
+    object-position: center;
   }
-  video{
-    width: 350px;
-    height: 300px;
-  }
+  
 
   &__infos {
-    max-width: 350px;;
+    max-width: 350px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -183,19 +198,23 @@ h2 {
     p {
       margin-top: 3px;
     }
-   
-  &--title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  &--likes {
-    display: flex;
-    margin-left: 15px;
-    cursor: pointer;
+
+    &--title {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &--likes {
+      display: flex;
+      margin-left: 15px;
+      cursor: pointer;
       i {
         margin-top: 3px;
         margin-left: 5px;
+      }
+      &:hover {
+        scale: 1.2;
+        transition: all 0.3s ease-in-out;
       }
     }
   }
@@ -234,4 +253,12 @@ h2 {
   @media (max-width: 720px) {
     display: none;
   }
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.actionDisabled {
+  cursor: not-allowed;
+  color: #808080;
 }

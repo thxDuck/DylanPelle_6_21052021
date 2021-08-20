@@ -14,42 +14,71 @@
 </head>
 
 <body>
+
+  <aside class="modal-lightbox hidden" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="titleModal">
+    <div class="lightbox">
+      <div class="lightbox__action--left"> <a class="fas fa-chevron-left prev" id="prev" title="Previous media"></a> </div>
+      <div class="lightbox__media"><img src="../public/images/photographers/930/sport_water_tunnel.jpg" alt="Surfer"></div>
+      <div class="lightbox__action--right"> <a class="fas fa-chevron-right next" id="next" title="Next media"></a></div>
+      <div class="lightbox__action--close"> <a class="fas fa-times" id="close" title="close lightbox"></a> </div>
+      <div class="lightbox__media--title">
+        <p class="galery__item__infos--title" id="titleModal">
+        <p>
+      </div>
+    </div>
+  </aside>
+
+<!-- remove hidden for dev -->
+  <aside class="modal-contact hidden" aria-hidden="false" role="dialog" aria-modal="true" aria-labelledby="titleContact">
+    <div class="contact">
+      <h1 class="contact__form--title">Contactez-moi DYDY !!</h1>
+      <i class="close-contact"></i>
+      <form class="contact__form" action="post">
+        <label for="firstName">Prénom</label>
+        <input type="text" name="firstName" id="firstName">
+
+        <label for="lastName">Nom</label>
+        <input type="text" name="lastName" id="lastName">
+
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email">
+
+        <label for="message">Votre message</label>
+        <textarea id="message" name="message" rows="5" cols="33"></textarea>
+
+
+      </form>
+    </div>
+
+  </aside>
+
   <div class="main">
+
+
+
+
     <header>
       <a href="/index.html"><img src="/public/images/ressources/logo.png" alt="Logo FishEye" srcset="" /></a>
     </header>
 
+
+
     <main>
       <section class="profile">
         <div class="profile__description">
-          <!-- <h1>Mimi Keeal</h1>
-          <p class="localisation">Bouzillé, France</p>
-          <blockquote>
-            Life is beautiful... birds sing blah blah blah...
-          </blockquote>
-          <div class="tags">
-            <a href=""><span class="tag">#art</span></a>
-            <a href=""><span class="tag">#art</span></a>
-            <a href=""><span class="tag">#art</span></a>
-          </div> -->
         </div>
 
-        <div class="profile__action">
+        <div class="profile__contact">
           <button type="button" class="btn action-contact">
             Contactez-moi
           </button>
         </div>
 
         <div class="profile__photo">
-          <!-- <img class="profilePic--rounded" src="/public/images/photographers/Mimi/Portrait_Nora.jpg" alt="" /> -->
         </div>
       </section>
 
       <section class="galery">
-
-
-
-
 
         <span class="galery__sort">
           <label for="galery-sort">Trier par</label>
@@ -59,7 +88,7 @@
 
             </option>
             <option value="date">Date</option>
-            <option value="alphabetic">Titre</option>
+            <option value="name">Titre</option>
           </select>
         </span>
 
@@ -99,74 +128,6 @@
 
         <div class="galery__content" id="galery_list">
 
-   <!--        <article class="galery__item">
-            <a href="#" class="galery__item__photo">
-              <video controls>
-                <source src="../public/images/photographers/82/Art_Wooden_Horse_Sculpture.mp4" type="video/mp4">
-                <p>Votre navigateur ne prend pas en charge les vidéos HTML5.
-                   Voici <a href="myVideo.mp4">un lien pour télécharger la vidéo</a>.</p>
-              </video>
-            </a>
-            <div class="galery__item__infos">
-              <p class="galery__item__infos--title">Arc-en-ciel</p>
-              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
-            </div>
-          </article>
-
-          <article class="galery__item">
-            <a href="#" class="galery__item__photo">
-              <img src="../public/images/photographers/Mimi/Event_BenevidesWedding.jpg" alt="">
-
-            </a>
-            <div class="galery__item__infos">
-              <p class="galery__item__infos--title">Arc-en-ciel</p>
-              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
-            </div>
-          </article>
-
-          <article class="galery__item">
-            <a href="#" class="galery__item__photo">
-              <img src="../public/images/photographers/Mimi/Event_PintoWedding.jpg" alt="">
-            </a>
-            <div class="galery__item__infos">
-              <p class="galery__item__infos--title">Arc-en-ciel</p>
-              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
-            </div>
-          </article>
-
-          <article class="galery__item">
-            <a href="#" class="galery__item__photo">
-              <img src="../public/images/photographers/Mimi/Event_SeasideWedding.jpg" alt="">
-
-            </a>
-            <div class="galery__item__infos">
-              <p class="galery__item__infos--title">Arc-en-ciel</p>
-              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
-            </div>
-          </article>
-
-          <article class="galery__item">
-            <a href="#" class="galery__item__photo">
-              <img src="../public/images/photographers/Mimi/Portrait_Wednesday.jpg" alt="">
-
-            </a>
-            <div class="galery__item__infos">
-              <p class="galery__item__infos--title">Arc-en-ciel</p>
-              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
-            </div>
-          </article>
-
-          <article class="galery__item">
-            <a href="#" class="galery__item__photo">
-              <img src="../public/images/photographers/Mimi/Travel_Lonesome.jpg" alt="">
-
-            </a>
-            <div class="galery__item__infos">
-              <p class="galery__item__infos--title">Arc-en-ciel</p>
-              <p class="galery__item__infos--likes">12<i class="fas fa-heart" aria-label="likes"></i></p>
-            </div>
-          </article> -->
-
 
         </div>
 
@@ -174,27 +135,10 @@
 
       </section>
       <div class="complementary__infos">
-        <p class="complementary__infos--popularity" ><i id="nbLikes"></i> <i class="fas fa-heart" aria-label="likes"></i></p>
+        <p class="complementary__infos--popularity"><i id="nbLikes"></i> <i class="fas fa-heart" aria-label="likes"></i>
+        </p>
         <p class="complementary__infos--price"><i id="price"></i></p>
       </div>
-
-      <section class="lightbox">
-        <div class="media">
-          <div class="media__action--left">
-            <i class="fas fa-chevron-left"></i>
-          </div>
-          <div class="media__media"></div>
-          <div class="media__action--left">
-            <i class="fas fa-times"></i>
-            <i class="fas fa-chevron-right"></i>
-          </div>
-        </div>
-
-      </section>
-
-
-
-
 
 
 
@@ -203,20 +147,5 @@
 </body>
 
 <script type="module" src="../js/main.js"></script>
-<!-- <script type="module" src="../js/controller/home.js"></script> -->
-<!-- <script type="module" src="../js/main.js"></script>
-<script type="module" src="../js/main.js"></script> -->
-<!-- <script type="text/javascript" src="../js/controller/controller.js"></script>
-<script type="text/javascript">Home.initHome()</script> -->
 
 </html>
-
-
-<!-- 
-IMGs
-
-<img src="../public/images/photographers/Mimi/Portrait_Background.jpg" alt="">
-<img src="../public/images/photographers/Mimi/profile_MimiKeel.jpg" alt="">
-<img src="../public/images/photographers/Mimi/Travel_HillsideColor.jpg" alt="">
-
- -->

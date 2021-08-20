@@ -5,7 +5,11 @@
 
 # Project FishEye
 
+
+
 ## Javascript :
+
+TODO : Create field in JSON datas for screen reader, mannualy or automatic ? (automatic like "Picture of ${ tag }, ${ tag }, captured by ${ author }." )
 
 #### Tree :
 

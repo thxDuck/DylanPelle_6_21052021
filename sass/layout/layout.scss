@@ -1,6 +1,9 @@
 .main {
   padding: 30px;
 }
+* {
+  box-sizing: border-box;
+}
 h2 {
   font-weight: 400;
 }
@@ -36,7 +39,96 @@ header {
   }
 }
 
+.modal-lightbox {
+  position: fixed;
+  padding: 0px;
+  margin: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
 
 .lightbox {
-  display: none;
+  display: grid;
+  grid-template-columns: 0.5fr repeat(3, 1fr) 0.5fr;
+  grid-template-rows: repeat(5, 1fr) 0.5fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  max-width: 70%;
+  height: 90%;
+
+  color: $txt_color_secondary;
+  font-size: 5.2rem;
+
+  &__action {
+    cursor: pointer;
+    &--left {
+      grid-area: 3 / 1 / 4 / 2;
+      @extend %flex-center;
+      cursor: pointer;
+    }
+    &--right {
+      grid-area: 3 / 5 / 4 / 6;
+      @extend %flex-center;
+      cursor: pointer;
+    }
+    &--close {
+      grid-area: 1 / 5 / 2 / 6;
+      @extend %flex-center;
+      cursor: pointer;
+      height: max-content;
+    }
+  }
+  &__media {
+    grid-area: 1 / 2 / 6 / 5;
+    overflow: hidden;
+    img, video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    &--title {
+      grid-area: 6 / 2 / 7 / 5;
+      font-size: 2rem;
+    }
+  }
+}
+
+
+.modal-contact {
+  position: fixed;
+  padding: 0px;
+  margin: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  .contact {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 30%;
+    height: 90%;
+    padding: 20px;
+
+    &__form {
+      display: flex;
+      padding: 10px;
+      flex-direction: column;
+    }
+
+
+  }
 }

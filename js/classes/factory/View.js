@@ -23,29 +23,47 @@ export default class View {
 		let model = this.model;
 		let datas = this.datas;
 		switch (type) {
-		case "card":
-			if (!!model && model === "Photographer") return View.createPhotographerCard(datas);
-			if (!!model && model === "Media") return View.createMediaCard(datas);
-		case "description":
-			if (!!model && model === "Photographer") return View.createPhotographerDescription(datas);
+			case "card":
+				if (!!model && model === "Photographer") return View.createPhotographerCard(datas);
+				if (!!model && model === "Media") return View.createMediaCard(datas);
+			case "description":
+				if (!!model && model === "Photographer") return View.createPhotographerDescription(datas);
 
-		case 'tags':
-			if (options === 'action') return View.createTagList(datas, true)
-			return View.createTagList(datas, false)
+			case 'tags':
+				if (options === 'action') return View.createTagList(datas, true)
+				return View.createTagList(datas, false)
 
-		case "title":
-			return View.createTitle(options, datas)
+			case "title":
+				return View.createTitle(options, datas)
+			case "source":
+				return View.getMediaSource(datas)
 
-		default:
-			// TODO : create an error element
-			return "<p>ERROR</p>"
-			break;
+			default:
+				// TODO : create an error element
+				return "<p>ERROR</p>"
+				break;
 		}
 	}
 
-	 getTypeOfDatas() {
+	getTypeOfDatas() {
 		if (!!this.datas.model) return this.datas.model
 		return this.datas.constructor.name;
+	}
+
+
+
+
+	static getMediaSource(datas) {
+		switch (datas.format) {
+			case "video":
+				return this.createVideo(datas);
+
+			case "picture":
+				return this.createImg(datas);
+
+			default:
+				break;
+		}
 	}
 
 
@@ -56,14 +74,14 @@ export default class View {
 	static createMediaCard(datas) {
 		this.createMediaCard(datas);
 		switch (datas.format) {
-		case "video":
-			return this.createVideo(datas);
+			case "video":
+				return this.createVideo(datas);
 
-		case "picture":
-			return this.createImg(datas);
+			case "picture":
+				return this.createImg(datas);
 
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 
@@ -85,7 +103,6 @@ export default class View {
 			media = this.createImg(datas);
 		} else if (datas.format === "video") {
 			media = this.createVideo(datas);
-			console.log('media => ', media);
 		}
 		let description = this.createMediaDescription(datas);
 		link.append(media);
@@ -121,16 +138,33 @@ export default class View {
 				"value": "galery__item__infos--title",
 			}
 		], media.title);
-		let likes = this.createElementWithAttributes("p", [
+		let likesContainer = this.createElementWithAttributes("p", [
 			{
 				"name": "class",
-				"value": "galery__item__infos--likes",
+				"value": "galery__item__infos--likes mediaLike",
+			},
+			{
+				"name": "id",
+				"value": media.id,
+			},
+			{
+				"name": "value",
+				"value": media.likes,
+			},
+		]);
+		let likeValue = this.createElementWithAttributes("span", [
+			{
+				"name": "id",
+				"value": "like-" + media.id,
 			}
 		], media.likes);
 
-		likes.append(heartIcon);
+
+
+		likesContainer.append(likeValue);
+		likesContainer.append(heartIcon);
 		container.appendChild(title)
-		container.appendChild(likes)
+		container.appendChild(likesContainer)
 		return container;
 
 	}
@@ -190,7 +224,7 @@ export default class View {
 			},
 			{
 				"name": "href",
-				"value": ("/pages/photographer_details.html?photographer="+ photographer.id),
+				"value": ("/pages/photographer_details.html?photographer=" + photographer.id),
 			},
 
 		]
@@ -202,7 +236,7 @@ export default class View {
 			},
 			{
 				"name": "src",
-				"value": "/public/images/Photographers_ID_Photos/"+ photographer.profilePic,
+				"value": "/public/images/Photographers_ID_Photos/" + photographer.profilePic,
 			},
 			{
 				"name": "alt",
