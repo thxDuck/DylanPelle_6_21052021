@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Détail</title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&display=swap");
   </style>
   <script src="https://kit.fontawesome.com/d189eddfe3.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/public/css/style.css" />
@@ -15,12 +15,12 @@
 
 <body>
 
-  <aside class="modal-lightbox hidden" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="titleModal">
+  <aside class="modal modal-lightbox hidden" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="titleModal">
     <div class="lightbox">
-      <div class="lightbox__action--left"> <a class="fas fa-chevron-left prev" id="prev" title="Previous media"></a> </div>
+      <div class="lightbox__action--left lightbox_cta"> <a class=" fas fa-chevron-left prev" id="prev" title="Previous media"></a> </div>
       <div class="lightbox__media"><img src="../public/images/photographers/930/sport_water_tunnel.jpg" alt="Surfer"></div>
-      <div class="lightbox__action--right"> <a class="fas fa-chevron-right next" id="next" title="Next media"></a></div>
-      <div class="lightbox__action--close"> <a class="fas fa-times" id="close" title="close lightbox"></a> </div>
+      <div class="lightbox__action--right lightbox_cta"> <a class=" fas fa-chevron-right next" id="next" title="Next media"></a></div>
+      <div class="lightbox__action--close lightbox_cta"> <a class=" fas fa-times" id="close" title="close lightbox"></a> </div>
       <div class="lightbox__media--title">
         <p class="galery__item__infos--title" id="titleModal">
         <p>
@@ -28,26 +28,37 @@
     </div>
   </aside>
 
-<!-- remove hidden for dev -->
-  <aside class="modal-contact hidden" aria-hidden="false" role="dialog" aria-modal="true" aria-labelledby="titleContact">
+  <!-- remove hidden for dev -->
+  <aside class="modal modal-contact hidden" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="aria-name-modal">
     <div class="contact">
-      <h1 class="contact__form--title">Contactez-moi DYDY !!</h1>
-      <i class="close-contact"></i>
-      <form class="contact__form" action="post">
-        <label for="firstName">Prénom</label>
-        <input type="text" name="firstName" id="firstName">
 
-        <label for="lastName">Nom</label>
-        <input type="text" name="lastName" id="lastName">
+      <div class="contact__heading">
+        <p class="hidden" id="aria-name-modal"></p>
+        <h1 class="contact__heading--title">Contactez-moi<br><span id="titleContact"></span></h1>
+        <a class="contact__heading--close close close-contact fas fa-times"  aria-labelledby="Close contact form"></a>
+      </div>
+
+      <form class="contact__form" action="post">
+
+        <label for="first-name">Prénom</label>
+        <input type="text" name="first-name" required aria-required="true" aria-labelledby="First name" aria-invalid="false" id="first-name">
+        <span class="first-name-error error"></span>
+
+        <label for="last-name">Nom</label>
+        <input type="text" name="last-name" required aria-required="true" aria-labelledby="Last name" aria-invalid="false" id="last-name">
+        <span class="last-name-error error"></span>
 
         <label for="email">Email</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" required aria-required="true" aria-labelledby="Email" aria-invalid="false" id="email">
+        <span class="email-error error"></span>
 
         <label for="message">Votre message</label>
-        <textarea id="message" name="message" rows="5" cols="33"></textarea>
+        <textarea id="message" name="message" required aria-required="true" aria-labelledby="Your message" aria-invalid="false" rows="5" cols="33"></textarea>
+        <span class="message-error error"></span>
 
-
+        <button type="submit" class="btn btn-send-msg" aria-labelledby="Send">Envoyer</button>
       </form>
+
     </div>
 
   </aside>
@@ -134,15 +145,16 @@
 
 
       </section>
-      <div class="complementary__infos">
-        <p class="complementary__infos--popularity"><i id="nbLikes"></i> <i class="fas fa-heart" aria-label="likes"></i>
-        </p>
-        <p class="complementary__infos--price"><i id="price"></i></p>
-      </div>
+ 
 
 
 
     </main>
+    <div class="complementary__infos">
+      <p class="complementary__infos--popularity"><i id="nbLikes"></i> <i class="fas fa-heart" aria-label="likes"></i>
+      </p>
+      <p class="complementary__infos--price"><i id="price"></i></p>
+    </div>
   </div>
 </body>
 

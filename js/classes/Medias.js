@@ -1,6 +1,6 @@
 
 export default class Media {
-	constructor(id, photographerId, title, image, tags, likes, date, price) {
+	constructor(id, photographerId, title, image, tags, likes, date, price, description = false) {
 		this.id = id;
 		this.photographerId = photographerId;
 		this.title = title;
@@ -11,18 +11,19 @@ export default class Media {
 		this.price = price;
 		this.url = this.getUrl();
 		this.format = this.getFormat();
+		this.descrition = !!description ? description : this.getDescription();
 	}
 
 	static create() {
 		switch (this.format) {
-		case "video":
-			return createVideo();
+			case "video":
+				return createVideo();
 
-		case "picture":
-			return createImg();
+			case "picture":
+				return createImg();
 
-		default:
-			break;
+			default:
+				break;
 		}
 
 	}
@@ -42,7 +43,24 @@ export default class Media {
 	}
 
 
+	/**
+	 * Auto generate descrition if media doesn't contains description field
+	 * return a string like "Vidéo named ${name} on theme of ${list of tags}."
+	 */
+	getDescription() {
+		let tagList = this.tags;
+		let type = "";
+		let description = this.format + " named " + this.title + " on the theme of";
+		for (let i = 0; i < tagList.length; i++) {
+			const tag = tagList[i];
+			description += (i === 0 ? " " : ', ') + tag + (i === tagList.length - 1 ? "." : '');
 
-
+		}
+		return description;
+	}
 
 }
+
+
+
+

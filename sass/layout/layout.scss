@@ -1,45 +1,107 @@
 .main {
-  padding: 30px;
+  @extend %flex-column;
+  padding: 5px;
 }
-* {
-  box-sizing: border-box;
-}
-h2 {
-  font-weight: 400;
-}
-header {
+
+.header {
   display: flex;
   justify-content: space-between;
-  margin-right: 40px;
-  margin-left: 40px;
+  flex-wrap: wrap;
+  &__nav {
+    display: flex;
+    .tag-list {
+      padding: 0px;
+      display: flex;
+      flex-wrap: nowrap;
+      list-style: none;
+      width: min-content;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    &__logo {
+      order: 1;
+    }
+    &__title {
+      order: 2;
+      margin-top: 0px;
+    }
+    &__nav {
+      order: 3;
+      .tag-list {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+  @media screen and (max-width: 720px) {
+    &__logo {
+      width: 40%;
+      img {
+        width: 80%;
+      }
+    }
+    &__title {
+      font-size: 1.3rem;
+    }
+    &__nav {
+      .tag-list {
+        width: 95%;
+        flex-wrap: wrap;
+        a {
+          margin: 5px 0px 5px 5px;
+        }
+      }
+    }
+  }
 }
-.main__title {
-  width: 100%;
-}
+
 .photographers-list {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  @media screen and (max-width: 1200px) {
+    justify-content: space-around;
+    .thmb-photographer {
+      min-width: 34%;
+    }
+  }
 }
 
 .galery {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
+
   &__sort {
     width: 100%;
   }
+
   &__content {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 
     padding: 15px;
     flex-wrap: wrap;
+
+    @media screen and (max-width: 769px) {
+      padding: 0px;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    // TODO : Je suis en train de faire le responsive, a partir de 1200Px je veut réduite la largeur des mediaCards pour que les deux passent nickel
+    // TODO : ensuite je pourrait faire le même systeme que pour la page d'accueil :)
+
+    &__content {
+      display: flex;
+      align-items: center;
+    }
   }
 }
-
-.modal-lightbox {
+.modal {
+  background: #fff;
   position: fixed;
   padding: 0px;
   margin: 0px;
@@ -68,16 +130,19 @@ header {
 
   &__action {
     cursor: pointer;
+
     &--left {
       grid-area: 3 / 1 / 4 / 2;
       @extend %flex-center;
       cursor: pointer;
     }
+
     &--right {
       grid-area: 3 / 5 / 4 / 6;
       @extend %flex-center;
       cursor: pointer;
     }
+
     &--close {
       grid-area: 1 / 5 / 2 / 6;
       @extend %flex-center;
@@ -85,13 +150,17 @@ header {
       height: max-content;
     }
   }
+
   &__media {
     grid-area: 1 / 2 / 6 / 5;
     overflow: hidden;
-    img, video {
+    
+    img,
+    video {
+      border-radius: $border_radius;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
     }
 
@@ -100,35 +169,67 @@ header {
       font-size: 2rem;
     }
   }
+
+  @media screen and (max-width: 769px) {
+    max-width: max-content;
+    height: max-content;
+    .lightbox_cta {
+      font-size: 3rem;
+    }
+    &__media {
+      overflow: hidden;
+
+      img,
+      video {
+        width: 100%;
+        height: 100%;
+  
+      }
+    }
+  }
 }
 
-
 .modal-contact {
-  position: fixed;
-  padding: 0px;
-  margin: 0px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
   .contact {
     display: flex;
     flex-direction: column;
-
-    max-width: 30%;
-    height: 90%;
+    height: max-content;
     padding: 20px;
+    box-shadow: 0px 10px 13px -10px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    @extend %roundedBox;
 
-    &__form {
-      display: flex;
-      padding: 10px;
-      flex-direction: column;
+    &__heading {
+      @extend %flex-row;
+      justify-content: space-between;
+      align-items: flex-start;
     }
 
+    &__form {
+      @extend %flex-column;
+      padding: 10px;
+    }
 
+    @media screen and (max-width: 769px) {
+      max-width: 100%;
+      min-width: 80%;
+    }
+    @media screen and (max-width: 480px) {
+      height: 100%;
+      &__heading {
+        font-size: 1.5rem;
+        margin-top: 20px;
+      }
+      &__form {
+        height: 100%;
+        justify-content: space-around;
+
+        .btn-send-msg {
+          align-self: center;
+          margin-bottom: 50px;
+          width: 50%;
+          text-align: center;
+        }
+      }
+    }
   }
 }

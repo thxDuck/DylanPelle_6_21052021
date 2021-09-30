@@ -6,7 +6,19 @@
 
 @import "components/components.scss";
 @import "layout/layout.scss";
+html {
+    font-size: 100%;
+    max-height: 100vh;
+}
 * {
     font-family: 'DM Sans', sans-serif;
-    background-color: #E5E5E5;
 }
+.main {
+    padding: 15px;
+    max-width: 1920px;
+    margin: auto;
+  }
+  
+h2 {
+    font-weight: 400;
+  }

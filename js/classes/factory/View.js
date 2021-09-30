@@ -5,7 +5,6 @@ export default class View {
 		this.options = data.options;
 		this.datas = data.datas;
 		this.model = this.getTypeOfDatas(this.datas.datas);
-
 	}
 
 	/**
@@ -179,7 +178,7 @@ export default class View {
 			},
 			{
 				"name": "alt",
-				"value": media.title,
+				"value": media.description,
 			}]);
 		return image;
 	}
@@ -264,7 +263,18 @@ export default class View {
 
 	static createTagList(tags, withAtcion = false) {
 		if (!!tags && tags.length > 0) {
-			let container = this.createElementWithAttributes('div', 'thmb-photographer__tags');
+			// let container = this.createElementWithAttributes('div', 'tag-list');
+			let container = this.createElementWithAttributes('div',
+				[
+					{
+						"name": "class",
+						"value": "tag-list",
+					},
+					{
+						"name": "id",
+						"value": "all-tags",
+					},
+				]);
 			tags.forEach(tag => {
 				let tagName = '#' + tag;
 				let a;

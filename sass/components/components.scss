@@ -27,11 +27,7 @@
 a {
   text-decoration: none;
 }
-.tag-list {
-  display: flex;
 
-  list-style: none;
-}
 // Titles / textes
 h1 {
   color: $txt_color_secondary;
@@ -95,21 +91,27 @@ h2 {
 
 .profile {
   display: flex;
-  width: 100%;
-
+  padding: 25px;
+  margin: 25px;
+  background-color: #fafafa;
   &__description {
     min-width: max-content;
     display: flex;
     flex-direction: column;
 
     h1 {
-      font-size: 64px;
+      font-size: 3.5rem;
+      margin-top: 25px;
+      margin-bottom: 0;
       color: $txt_color_primary;
     }
-
+    .localisation {
+      font-size: 1.5rem;
+    }
     blockquote {
       @extend %text-light;
       margin-left: 0;
+      margin-bottom: 20px;
     }
   }
   &__contact {
@@ -118,6 +120,7 @@ h2 {
   button {
     margin-top: 30px;
     width: max-content;
+    font-weight: bold;
   }
   &__photo {
     display: flex;
@@ -125,6 +128,72 @@ h2 {
     width: 100%;
     // scale: 0.8;
   }
+  @media screen and (max-width: 1200px) {
+    margin: 5px;
+    &__description {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+    &__contact {
+      button {
+       font-size: 0.8rem;
+      }
+      @media screen and (max-width: 940px) {
+        margin-left: 0px;
+        margin-right: 15px;
+        button {
+        
+
+        }
+
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    // width: 1vw;
+    background-color: #fff;
+    min-width: 100%;
+    padding: 0px;
+    justify-content: space-between;
+    &__description {
+      width: 50%;
+      min-width: auto;
+      h1 {
+        font-size: 2rem;
+      }
+      .localisation {
+        font-size: 1.4rem;
+      }
+      .slogan {
+        font-size: 1rem;
+      }
+    }
+    &__contact { 
+      width: 0px;
+      margin-left: 0;
+      button {
+        position: fixed;
+        font-size: 1.2rem;
+        width: 33%;
+        bottom: 55px;
+        left: 50%;
+        transform: translateX(-50%);
+        @media screen and (max-width: 540px) {
+          width: max-content;
+          padding: 10px;
+        }
+      }
+    }
+    &__photo {
+      img {
+        width: 120px;
+        height: 120px;
+      }
+
+    }
+  }
+
 }
 
 // I'm here, try to design select and options
@@ -159,6 +228,10 @@ h2 {
     }
   }
 }
+
+.blur {
+  filter: blur(15px);
+}
 @keyframes pop {
   0% {
     scale: 1;
@@ -178,14 +251,18 @@ h2 {
   margin: 15px;
   display: flex;
   flex-direction: column;
-
-  img,video {
+  // width: 30%;
+  img,
+  video {
     width: 350px;
     height: 300px;
     object-fit: cover;
     object-position: center;
+    border-radius: $border_radius;
+   
+
+
   }
-  
 
   &__infos {
     max-width: 350px;
@@ -218,8 +295,11 @@ h2 {
       }
     }
   }
-}
 
+}
+.modal{
+  z-index: 1;
+}
 .complementary__infos {
   position: fixed;
   bottom: 0px;
@@ -250,15 +330,91 @@ h2 {
       font-style: normal;
     }
   }
-  @media (max-width: 720px) {
-    display: none;
+  @media (max-width: 768px) {
+    position: unset;
+    margin-bottom: -35px;
+    margin-top: 30px;
+    max-width: unset;
+    width: 30%;
+    margin-right: 0px;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
   }
 }
 .hidden {
-  visibility: hidden;
+  // visibility: hidden;
+  display: none;
+  z-index: -1;
   opacity: 0;
 }
 .actionDisabled {
   cursor: not-allowed;
   color: #808080;
+}
+.glow-error {
+  border-style: solid;
+  border-color: rgba(211, 0, 0, 0.774);
+  border-width: 3px;
+}
+.error {
+  color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.modal-contact {
+  .contact {
+    background-color: $bg_color_secondary;
+    color: #000;
+    &__heading {
+      font-size: 1.5rem;
+      &--title {
+        color: #000;
+        margin-top: 0px;
+      }
+
+      &--close {
+        height: max-content;
+        color: #fff;
+        font-size: 2.5rem;
+      }
+    }
+    &__form {
+      label {
+        font-size: 1.2rem;
+        color: #312e2e;
+        font-weight: 100;
+      }
+      input,
+      textarea {
+        font-size: 1.2rem;
+        border-radius: $border_radius;
+        padding: 7px;
+      }
+
+      .btn-send-msg {
+        width: max-content;
+        padding: 10px 20px 10px 20px;
+        margin-top: 15px;
+        &:hover {
+          box-shadow: 0px 10px 13px -10px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+          background-color: $bg_color_primary;
+          color: #fff;
+          cursor: pointer;
+        }
+      }
+    }
+   
+  }
+
 }

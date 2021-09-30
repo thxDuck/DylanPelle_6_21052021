@@ -29,3 +29,8 @@ Controllers and Classes can use the models files for pick datas in "database".
 
 database is in js > models. files contains only function who return "raw datas" or aggregates datas. 
 
+
+## Accessibility
+
+ - Call to action = button type btn, vadidate type sumbit
+ - Liens === navigation !!!
