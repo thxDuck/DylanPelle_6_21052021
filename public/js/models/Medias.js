@@ -684,7 +684,6 @@ export default class MediaDatas {
 		if (!!id) {
 			id = parseInt(id);
 			return MEDIA_DATAS.find(m => (m.photographerId === photographerId && m.id === id))
-			
 		}
 	}
 

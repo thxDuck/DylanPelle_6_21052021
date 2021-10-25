@@ -26,7 +26,7 @@ export default class Photographer {
 		if (typeof likes === "number") {
 			return likes;
 		} else {
-			console.log('Likes undefined');ta
+			console.log('Likes undefined');
 			return 0;
 		}
 	}

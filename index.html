@@ -1,40 +1,41 @@
-
 <!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>FishEye | Home</title>
-        <style>
-            @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
-        </style>
-        <script src="https://kit.fontawesome.com/d189eddfe3.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/public/css/style.css" />
-    </head>
-    <body>
-        <div class="main">
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FishEye | Home</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
+    </style>
+    <script src="https://kit.fontawesome.com/d189eddfe3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="public/css/style.css" />
+</head>
 
-            <header class="header">
-                <a href="/index.html" class="header__logo"><img src="/public/images/ressources/logo.png" alt="FishEye Home page" srcset="" /></a>
-                <nav aria-label="photographer categories" class="header__nav">
-                    <ul class="tag-list" id="allTags"></ul>
-                </nav>
-                <h1 class="header__title">Nos photographes</h1>
-            </header>
+<body>
 
-            <main>
-                <section class="photographers-list" id="photographers-list" aria-label="photographer list">
-                   
-                </section>
+    <div class="main">
+        <a href="#firstPhotographer" title="Passer au contenu" class="btn goToContent" tabindex="0">Passer au contenu</a>
 
-                <!-- 
-TODO : Je n'arrive pas a gérer le layout, je devrait faire un croquis, ça va m'aider (je pense faire un genre de div qui comprends le header + h2 et ensuite la section en dessous ! )
+        <header class="header" role="heading">
+            <a href="/index.html" class="header__logo" aria-label="Fisheye Home page">
+                <img src="public/images/ressources/logo.png" alt="Logo FishEye" role="img" />
+            </a>
+            <nav aria-label="Sort photographer by tags" class="header__nav" role="navigation">
+            </nav>
+            <h1 class="header__title">Nos photographes</h1>
 
-             -->
-            </main>
-        </div>
-    </body>
-    <script type="module" src="../js/main.js"></script>
+        </header>
+
+        <main role="main">
+
+            <section class="photographers-list" id="photographers-list" aria-label="Photographer list">
+            </section>
+
+        </main>
+    </div>
+</body>
+<script type="module" src="public/js/main.js"></script>
+
 </html>

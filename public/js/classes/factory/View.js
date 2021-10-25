@@ -22,25 +22,25 @@ export default class View {
 		let model = this.model;
 		let datas = this.datas;
 		switch (type) {
-			case "card":
-				if (!!model && model === "Photographer") return View.createPhotographerCard(datas);
-				if (!!model && model === "Media") return View.createMediaCard(datas);
-			case "description":
-				if (!!model && model === "Photographer") return View.createPhotographerDescription(datas);
+		case "card":
+			if (!!model && model === "Photographer") return View.createPhotographerCard(datas);
+			if (!!model && model === "Media") return View.createMediaCard(datas);
+		case "description":
+			if (!!model && model === "Photographer") return View.createPhotographerDescription(datas);
 
-			case 'tags':
-				if (options === 'action') return View.createTagList(datas, true)
-				return View.createTagList(datas, false)
+		case 'tags':
+			if (options === 'action') return View.createTagList(datas, true)
+			return View.createTagList(datas, false)
 
-			case "title":
-				return View.createTitle(options, datas)
-			case "source":
-				return View.getMediaSource(datas)
+		case "title":
+			return View.createTitle(options, datas)
+		case "source":
+			return View.getMediaSource(datas)
 
-			default:
-				// TODO : create an error element
-				return "<p>ERROR</p>"
-				break;
+		default:
+			// TODO : create an error element
+			return "<p>ERROR</p>"
+			break;
 		}
 	}
 
@@ -54,14 +54,14 @@ export default class View {
 
 	static getMediaSource(datas) {
 		switch (datas.format) {
-			case "video":
-				return this.createVideo(datas);
+		case "video":
+			return this.createVideo(datas);
 
-			case "picture":
-				return this.createImg(datas);
+		case "picture":
+			return this.createImg(datas);
 
-			default:
-				break;
+		default:
+			break;
 		}
 	}
 
@@ -73,30 +73,35 @@ export default class View {
 	static createMediaCard(datas) {
 		this.createMediaCard(datas);
 		switch (datas.format) {
-			case "video":
-				return this.createVideo(datas);
+		case "video":
+			return this.createVideo(datas);
 
-			case "picture":
-				return this.createImg(datas);
+		case "picture":
+			return this.createImg(datas);
 
-			default:
-				break;
+		default:
+			break;
 		}
 	}
 
 	static createMediaCard(datas) {
 		let container = this.createElementWithAttributes("div", [{ "name": "class", "value": "galery__item" }])
-		let link = this.createElementWithAttributes("a",
-			[{
-				"name": "class",
-				"value": "galery__item__photo",
-			}, {
-				"name": "href",
-				"value": "#"
-			}, {
-				"name": "id",
-				"value": datas.id
-			}])
+		let link = this.createElementWithAttributes("a", [{
+			"name": "class",
+			"value": "galery__item__photo",
+		},
+		{
+			"name": "href",
+			"value": "#"
+		},
+		{
+			"name": "aria-label",
+			"value": datas.title + ", closeup view"
+		},
+		{
+			"name": "id",
+			"value": "mediaId-"+ datas.id
+		}])
 		let media;
 		if (datas.format === "picture") {
 			media = this.createImg(datas);
@@ -115,19 +120,22 @@ export default class View {
 
 
 	static createMediaDescription(media) {
-		const heartIcon = this.createElementWithAttributes("i",
-			[{
-				"name": "class",
-				"value": "fas fa-heart",
-			},
-			{
-				"name": "aria-label",
-				"value": "likes",
-			}]);
+		const heartIcon = this.createElementWithAttributes("span", [{
+			"name": "class",
+			"value": "fas fa-heart",
+		},
+		{
+			"name": "aria-label",
+			"value": "likes div",
+		}]);
 		let container = this.createElementWithAttributes("div", [
 			{
 				"name": "class",
 				"value": "galery__item__infos",
+			},
+			{
+				"name": "value",
+				"value": media.likes,
 			}
 		]);
 
@@ -135,6 +143,10 @@ export default class View {
 			{
 				"name": "class",
 				"value": "galery__item__infos--title",
+			},
+			{
+				"name": "aria-label",
+				"value": media.likes,
 			}
 		], media.title);
 		let likesContainer = this.createElementWithAttributes("p", [
@@ -149,12 +161,20 @@ export default class View {
 			{
 				"name": "value",
 				"value": media.likes,
-			},
+			}
 		]);
-		let likeValue = this.createElementWithAttributes("span", [
+		let likeValue = this.createElementWithAttributes("a", [
 			{
 				"name": "id",
 				"value": "like-" + media.id,
+			},
+			{
+				"name": "value",
+				"value": media.likes,
+			},
+			{
+				"name": "aria-label",
+				"value": "This media get  "+media.likes + " likes",
 			}
 		], media.likes);
 
@@ -168,35 +188,35 @@ export default class View {
 
 	}
 
-
 	static createImg(media) {
-		// let container = this.createElementWithAttributes("div", [{ "name": "class", "value": "galery__item" }])
-		let image = View.createElementWithAttributes("img",
-			[{
-				"name": "src",
-				"value": media.url,
-			},
-			{
-				"name": "alt",
-				"value": media.description,
-			}]);
+		let image = View.createElementWithAttributes("img", [{
+			"name": "src",
+			"value": media.url,
+		},
+		{
+			"name": "alt",
+			"value": media.descrition,
+		},
+		{
+			"name": "role",
+			"value": "img",
+		}]);
 		return image;
 	}
 
 	static createVideo(media) {
-		let source = View.createElementWithAttributes("source",
-			[{
-				"name": "src",
-				"value": media.url
-			},
-			{
-				"name": "alt",
-				"value": media.title,
-			},
-			{
-				"name": "type",
-				"value": "video/mp4",
-			}]);
+		let source = View.createElementWithAttributes("source", [{
+			"name": "src",
+			"value": media.url
+		},
+		{
+			"name": "alt",
+			"value": media.title,
+		},
+		{
+			"name": "type",
+			"value": "video/mp4",
+		}]);
 
 		let video = document.createElement('video')
 		video.append(source);
@@ -208,6 +228,7 @@ export default class View {
 		if (!!className) container = this.createElementWithAttributes('div', className);
 		else container = document.createElement('div');
 		let localisation = this.createElementWithAttributes('p', 'localisation', photographer.getlocalisation());
+		localisation.setAttribute("aria-label", "localisation");
 		let slogan = this.createElementWithAttributes('blockquote', 'slogan', photographer.slogan);
 		container.appendChild(localisation);
 		container.appendChild(slogan);
@@ -223,7 +244,11 @@ export default class View {
 			},
 			{
 				"name": "href",
-				"value": ("/pages/photographer_details.html?photographer=" + photographer.id),
+				"value": ("public/pages/photographer_details.html?photographer=" + photographer.id),
+			},
+			{
+				"name": "aria-labelledby",
+				"value": photographer.username.replace(' ', ""),
 			},
 
 		]
@@ -235,21 +260,26 @@ export default class View {
 			},
 			{
 				"name": "src",
-				"value": "/public/images/Photographers_ID_Photos/" + photographer.profilePic,
+				"value": "public/images/Photographers_ID_Photos/" + photographer.profilePic,
 			},
 			{
 				"name": "alt",
-				"value": ("Profile picture of " + photographer.username)
+				"value": "",
+			},
+			{
+				"name": "role",
+				"value": "img",
 			}
 		]
 		let img = this.createElementWithAttributes('img', imgAttributes);
 		let cardTitle = this.createElementWithText('h2', photographer.username);
+		cardTitle.id = photographer.username.replace(' ', "");
 
 		photographerThumbnail.appendChild(img);
 		photographerThumbnail.appendChild(cardTitle);
 
 		let photographerInfosContainer = this.createPhotographerDescription(photographer, 'thmb-photographer__infos');
-		let price = this.createElementWithAttributes('p', 'price', (photographer.price + "€/jour"));
+		let price = this.createElementWithAttributes('p', 'price', (photographer.price + "€ par jour"));
 		photographerInfosContainer.appendChild(price);
 		container.appendChild(photographerThumbnail);
 		container.appendChild(photographerInfosContainer);
@@ -263,18 +293,16 @@ export default class View {
 
 	static createTagList(tags, withAtcion = false) {
 		if (!!tags && tags.length > 0) {
-			// let container = this.createElementWithAttributes('div', 'tag-list');
-			let container = this.createElementWithAttributes('div',
-				[
-					{
-						"name": "class",
-						"value": "tag-list",
-					},
-					{
-						"name": "id",
-						"value": "all-tags",
-					},
-				]);
+			let container = this.createElementWithAttributes('ul', [
+				{
+					"name": "class",
+					"value": "tag-list",
+				},
+				{
+					"name": "id",
+					"value": "all-tags",
+				},
+			]);
 			tags.forEach(tag => {
 				let tagName = '#' + tag;
 				let a;
@@ -288,15 +316,23 @@ export default class View {
 							"name": "id",
 							"value": tagName.replace('#', ''),
 						},
+						{
+							"name": "aria-label",
+							"value": tag,
+						},
 					];
 					a = this.createElementWithAttributes('a', attrs);
 				} else {
 					a = document.createElement('a');
 				}
-
+				a.setAttribute('aria-label', tag);
+				let li = document.createElement('li');
+				// li.setAttribute('aria-label', tag);
 				let span = this.createElementWithAttributes('span', 'tag', tagName);
-				a.appendChild(span);
-				container.appendChild(a);
+				// span.setAttribute('aria-label', tag);
+				a.append(span)
+				li.appendChild(a);
+				container.appendChild(li);
 			});
 			return container;
 		} else {

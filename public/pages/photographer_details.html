@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Détail</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400&display=swap");
+  </style>
+  <script src="https://kit.fontawesome.com/d189eddfe3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/public/css/style.css" />
+</head>
+
+<body>
+
+  <aside class="modal modal-lightbox hidden" id="lightbox-dialog" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="titleModal">
+    <div class="lightbox" role="document" aria-label="Image closup view">
+
+      <button type="button" class="lightbox__action--left lightbox_cta fas fa-chevron-left" data-order="3" id="prev" aria-label="Previous image"></button>
+
+      <div class="lightbox__media tab-control tab-lightbox" id="media-focus" data-order="0"></div>
+
+      <button type="button" class="lightbox__action--right lightbox_cta fas fa-chevron-right " data-order="4" id="next" aria-label="Next image"></button>
+
+      <div class="lightbox__action--close lightbox_cta " data-order="5">
+        <button type="button" class="fas fa-times" id="close" title="close lightbox" aria-label="Close dialog"></button>
+      </div>
+
+      <div class="lightbox__media--title">
+        <p class="galery__item__infos--title" id="titleModal"></p>
+      </div>
+
+    </div>
+  </aside>
+
+
+
+  <div class="main">
+
+    <header role="heading">
+      <a href="/index.html" class="header__logo" role="img" aria-label="Logo">
+        <img src="/public/images/ressources/logo.png" alt="FishEye Home page" role="img" srcset="" />
+      </a>
+    </header>
+
+    <main>
+      <section class="profile">
+        <div class="profile__description" aria-label="Information of photographer">
+        </div>
+
+        <div class="profile__contact">
+          <button type="button" class="btn action-contact" aria-label="Contact me" aria-haspopup="contact-dialog" aria-controls="contact-dialog">
+            Contactez-moi
+          </button>
+        </div>
+
+        <div class="profile__photo">
+        </div>
+      </section>
+
+      <section class="galery">
+
+        <span class="galery__sort">
+          <label for="galery-sort" aria-label="Order by">Trier par</label>
+          <select name="galery-sort" id="galery-sort">
+            <option value="popularity" selected>Popularité</option>
+            <option value="date">Date</option>
+            <option value="name">Titre</option>
+          </select>
+        </span>
+
+
+        <div class="galery__content" id="galery_list">
+        </div>
+
+      </section>
+
+    </main>
+
+    <div class="complementary__infos" aria-label="Total likes of photographer">
+      <p class="complementary__infos--popularity"><span id="nbLikes"></span> <span class="fas fa-heart" aria-label="likes"></span>
+      </p>
+      <p class="complementary__infos--price" aria-label="Price by day"><span id="price"></span></p>
+    </div>
+  </div>
+
+  <aside class="modal modal-contact hidden" id="contact-dialog" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="aria-name-modal">
+    <div class="contact" role="document">
+
+      <div class="contact__heading">
+        <p class="hidden" id="aria-name-modal"></p>
+        <h1 class="contact__heading--title">Contactez-moi<br><span id="titleContact"></span></h1>
+        <button type="button" class="contact__heading--close close close-contact fas fa-times tab-control tab-contact" title="close" aria-label="Close contact form" data-dismiss="contact-dialog"></button>
+      </div>
+
+      <form class="contact__form" action="post">
+
+        <label for="first-name" id="label-first-name">Prénom</label>
+        <input type="text" name="first-name" class="tab-control tab-contact" required="true" aria-required="true" aira-label="First name" aria-labelledby="label-first-name first-name-error" id="first-name">
+        <p class="first-name-error error" id="first-name-error" role="alert"></p>
+
+        <label for="last-name" id="label-last-name">Nom</label>
+        <input type="text" name="last-name class=" tabcontrol tab-contact"" required aria-required="true" aria-label="Last name" aria-labelledby="label-last-name last-name-error" id="last-name">
+        <p class="last-name-error error" id="last-name-error" role="alert"></p>
+
+        <label for="email" id="label-email">Email</label>
+        <input type="text" name="email" class="tab-control tab-contact" required aria-required="true" aria-label="Email" aria-labelledby="label-email email-error" id="email">
+        <p class="email-error error" id="email-error" role="alert"></p>
+
+        <label for="message" id="label-message">Votre message</label>
+        <textarea id="message" name="message" class="tab-control tab-contact" required aria-required="true" aria-label="Your message" aria-labelledby="label-message message-error" rows="5" cols="33"></textarea>
+        <p class="message-error error" id="message-error" role="alert"></p>
+
+        <div class="row">
+          <button type="submit" class="btn btn-send-msg tab-control tab-contact" aria-label="Send">Envoyer</button><span class="hidden" id="alert-success" role="alert">Message envoyé !</span>
+
+        </div>
+
+      </form>
+    </div>
+
+  </aside>
+
+</body>
+
+<script type="module" src="../js/main.js"></script>
+
+</html>

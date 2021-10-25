@@ -12,6 +12,9 @@ html {
 }
 * {
     font-family: 'DM Sans', sans-serif;
+    &:focus {
+      border: 3.5px solid red;
+    }
 }
 .main {
     padding: 15px;

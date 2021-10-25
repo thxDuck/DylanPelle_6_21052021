@@ -16,20 +16,20 @@ export default class Media {
 
 	static create() {
 		switch (this.format) {
-			case "video":
-				return createVideo();
+		case "video":
+			return createVideo();
 
-			case "picture":
-				return createImg();
+		case "picture":
+			return createImg();
 
-			default:
-				break;
+		default:
+			break;
 		}
 
 	}
 
 	getUrl() {
-		return "../public/images/photographers/" + this.photographerId + "/" + this.file;
+		return "../images/photographers/" + this.photographerId + "/" + this.file;
 	}
 
 	getFormat() {

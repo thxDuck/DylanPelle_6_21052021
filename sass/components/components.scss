@@ -1,19 +1,27 @@
 .btn {
   @extend %roundedBox;
+
   &:hover {
     @extend %focusBtn;
   }
+
   &:focus-within {
     @extend %focusBtn;
   }
 }
-
+#alert-success {
+  margin-left: 15px;
+  color: #2a5a12;
+}
 .tag {
   cursor: pointer;
   @extend %tag;
+
+
   &:hover {
     @extend %focusTag;
   }
+
   &:focus-within {
     @extend %focusTag;
   }
@@ -28,12 +36,24 @@ a {
   text-decoration: none;
 }
 
+.goToContent {
+  opacity: 0;
+  width: max-content;
+  margin: auto;
+  font-weight: 100;
+
+  &:focus {
+    opacity: 1;
+  }
+}
+
 // Titles / textes
 h1 {
   color: $txt_color_secondary;
   // font-size: 36px;
   font-weight: 400;
 }
+
 h2 {
   // font-size: 36px;
   font-style: normal;
@@ -50,9 +70,11 @@ h2 {
   font-weight: 400;
   // font-size: 13px;
 }
+
 .slogan {
   font-size: 0.9rem;
 }
+
 .price {
   @extend %text-light;
 }
@@ -66,6 +88,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   &__thumbnail {
     display: flex;
     flex-direction: column;
@@ -74,9 +97,22 @@ h2 {
       margin-bottom: 0px;
     }
   }
+
   &__infos {
     text-align: center;
   }
+
+}
+
+.fa-heart {
+  padding-top: 2px;
+  margin-left: 5px;
+}
+
+.tag-list {
+  display: flex;
+  list-style: none;
+  height: 100%;
 }
 
 .profilePic--rounded {
@@ -94,6 +130,7 @@ h2 {
   padding: 25px;
   margin: 25px;
   background-color: #fafafa;
+
   &__description {
     min-width: max-content;
     display: flex;
@@ -105,73 +142,89 @@ h2 {
       margin-bottom: 0;
       color: $txt_color_primary;
     }
+
+    ul {
+      padding-left: 0;
+    }
+
     .localisation {
       font-size: 1.5rem;
     }
+
     blockquote {
       @extend %text-light;
       margin-left: 0;
       margin-bottom: 20px;
     }
   }
+
   &__contact {
     margin-left: 100px;
   }
+
   button {
     margin-top: 30px;
     width: max-content;
     font-weight: bold;
   }
+
   &__photo {
     display: flex;
     justify-content: flex-end;
     width: 100%;
     // scale: 0.8;
   }
+
   @media screen and (max-width: 1200px) {
     margin: 5px;
+
     &__description {
       h1 {
         font-size: 2.5rem;
       }
     }
+
     &__contact {
       button {
-       font-size: 0.8rem;
+        font-size: 0.8rem;
       }
+
       @media screen and (max-width: 940px) {
         margin-left: 0px;
         margin-right: 15px;
-        button {
-        
-
-        }
 
       }
     }
   }
+
   @media screen and (max-width: 768px) {
     // width: 1vw;
     background-color: #fff;
     min-width: 100%;
     padding: 0px;
     justify-content: space-between;
+
     &__description {
       width: 50%;
       min-width: auto;
+
       h1 {
         font-size: 2rem;
       }
+
       .localisation {
         font-size: 1.4rem;
       }
+
       .slogan {
         font-size: 1rem;
       }
     }
-    &__contact { 
+
+    &__contact {
       width: 0px;
       margin-left: 0;
+
       button {
         position: fixed;
         font-size: 1.2rem;
@@ -179,12 +232,14 @@ h2 {
         bottom: 55px;
         left: 50%;
         transform: translateX(-50%);
+
         @media screen and (max-width: 540px) {
           width: max-content;
           padding: 10px;
         }
       }
     }
+
     &__photo {
       img {
         width: 120px;
@@ -196,35 +251,14 @@ h2 {
 
 }
 
-// I'm here, try to design select and options
-#sort-media {
-  @extend %roundedBox;
-  // margin-right: 15px;
+.galery__sort {
+  margin-left: 30px;
 
-  option {
-    background-color: $bg_color_primary;
-  }
-}
+  #galery-sort {
+    @extend %roundedBox;
 
-.galery-sort {
-  btn {
-    border-radius: 0;
-    font-size: 16px;
-    text-align: left;
-    padding: 5px 10px;
-    width: 150px;
-    position: relative;
-
-    &::after {
-      width: 0;
-      height: 0;
-      border-left: 8px solid transparent;
-      border-right: 8px solid transparent;
-      border-top: 8px solid #aaa;
-      content: " ";
-      position: absolute;
-      right: 5px;
-      top: 10px;
+    option {
+      background-color: $bg_color_primary;
     }
   }
 }
@@ -232,17 +266,21 @@ h2 {
 .blur {
   filter: blur(15px);
 }
+
 @keyframes pop {
   0% {
     scale: 1;
   }
+
   50% {
     scale: 1.2;
   }
+
   100% {
     scale: 1;
   }
 }
+
 .pop {
   animation: 0.3s pop ease-in-out;
 }
@@ -251,6 +289,7 @@ h2 {
   margin: 15px;
   display: flex;
   flex-direction: column;
+
   // width: 30%;
   img,
   video {
@@ -259,7 +298,7 @@ h2 {
     object-fit: cover;
     object-position: center;
     border-radius: $border_radius;
-   
+
 
 
   }
@@ -272,6 +311,7 @@ h2 {
 
     color: $txt_color_secondary;
     font-size: 24px;
+
     p {
       margin-top: 3px;
     }
@@ -281,14 +321,17 @@ h2 {
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
     &--likes {
       display: flex;
       margin-left: 15px;
       cursor: pointer;
+
       i {
         margin-top: 3px;
         margin-left: 5px;
       }
+
       &:hover {
         scale: 1.2;
         transition: all 0.3s ease-in-out;
@@ -297,9 +340,11 @@ h2 {
   }
 
 }
-.modal{
-  z-index: 1;
-}
+
+// .modal {
+//   z-index: 1;
+// }
+
 .complementary__infos {
   position: fixed;
   bottom: 0px;
@@ -316,20 +361,24 @@ h2 {
   &--popularity {
     background-color: $bg_color_secondary;
     margin: 15px;
+
     i {
       background-color: $bg_color_secondary;
       margin-left: 5px;
       font-style: normal;
     }
   }
+
   &--price {
     background-color: $bg_color_secondary;
     margin: 15px;
+
     i {
       background-color: $bg_color_secondary;
       font-style: normal;
     }
   }
+
   @media (max-width: 768px) {
     position: unset;
     margin-bottom: -35px;
@@ -338,46 +387,58 @@ h2 {
     width: 30%;
     margin-right: 0px;
   }
+
   @media (max-width: 480px) {
     width: 100%;
   }
 }
+
 .hidden {
   // visibility: hidden;
   display: none;
   z-index: -1;
   opacity: 0;
 }
+
 .actionDisabled {
-  cursor: not-allowed;
-  color: #808080;
+  cursor: not-allowed!important;
+  color: #808080!important;
 }
+
 .glow-error {
   border-style: solid;
   border-color: rgba(211, 0, 0, 0.774);
   border-width: 3px;
 }
-.error {
-  color: black;
+
+.disableOnPage {
+  z-index: -1;
+  display: none;
+  visibility: hidden;
 }
+.lightbox {
+  &_cta {
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 
-
-
-
-
-
-
-
-
-
-
+    color: $txt_color_secondary;
+    font-size: 5.2rem;
+  
+  }
+}
 
 .modal-contact {
   .contact {
     background-color: $bg_color_secondary;
     color: #000;
+
     &__heading {
       font-size: 1.5rem;
+
       &--title {
         color: #000;
         margin-top: 0px;
@@ -389,12 +450,20 @@ h2 {
         font-size: 2.5rem;
       }
     }
+
     &__form {
-      label {
+      label:not(.error) {
         font-size: 1.2rem;
         color: #312e2e;
         font-weight: 100;
       }
+
+      .error {
+        color: rgb(125, 0, 0) !important;
+        font-weight: 100;
+        margin-bottom: 10px;
+      }
+
       input,
       textarea {
         font-size: 1.2rem;
@@ -406,6 +475,7 @@ h2 {
         width: max-content;
         padding: 10px 20px 10px 20px;
         margin-top: 15px;
+
         &:hover {
           box-shadow: 0px 10px 13px -10px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
           background-color: $bg_color_primary;
@@ -414,7 +484,7 @@ h2 {
         }
       }
     }
-   
+
   }
 
 }

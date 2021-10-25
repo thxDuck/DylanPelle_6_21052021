@@ -1,5 +1,4 @@
 import PhotographersDatas from "../models/Photographers.js";
-import MediaDatas from "../models/Medias.js";
 import Photographer from "../classes/Photographers.js";
 import View from "../classes/factory/View.js";
 
@@ -10,7 +9,8 @@ import View from "../classes/factory/View.js";
 
 
 function initHome() {
-	document.getElementById('allTags').innerHTML = '';
+	let nav = document.getElementsByTagName('nav')[0];
+	nav.innerHTML = '';
 	document.getElementById('photographers-list').innerHTML = '';
 	// const view = new View();
 	let allPhotographers = getAllPhotographers();
@@ -25,9 +25,9 @@ function initHome() {
 
 		let tagList = PhotographersDatas.getAllTags();
 		let allTags = new View('tags', { "options": "action", "datas": tagList })
-		document.getElementById('allTags').append(allTags.create())
+		nav.append(allTags.create())
 		addEventForTags();
-
+		document.querySelector('.thmb-photographer__thumbnail').id = 'firstPhotographer'
 	}
 }
 
@@ -43,6 +43,9 @@ function addEventForTags() {
 				let selectedTag = document.getElementsByClassName('tagSelected')[0];
 				if (!!selectedTag && selectedTag.innerText.indexOf(tagName) > -1) {
 					initHome();
+					setTimeout(() => {
+						document.getElementsByClassName("thmb-photographer")[0].firstChild.focus();
+					}, 200);
 				} else {
 
 					if (!!tagName) sortPhotographerByTag(tagName);
@@ -55,7 +58,8 @@ function addEventForTags() {
 }
 
 function sortPhotographerByTag(tagName = false) { // * tags par tags ou plusieurs tags ?
-	document.getElementById('allTags').innerHTML = '';
+	let nav = document.getElementsByTagName('nav')[0];
+	nav.innerHTML = '';
 
 	let allPhotographers = getAllPhotographers();
 	if (allPhotographers.length > 0) {
@@ -72,31 +76,19 @@ function sortPhotographerByTag(tagName = false) { // * tags par tags ou plusieur
 
 		let tagList = PhotographersDatas.getAllTags();
 		let allTags = new View('tags', { "options": "action", "datas": tagList })
-		document.getElementById('allTags').append(allTags.create())
+		nav.append(allTags.create())
 		let selectedTag = document.getElementById(tagName);
 		selectedTag.children[0].className += ' '+ "tagSelected";
 		addEventForTags();
+		document.getElementsByClassName("thmb-photographer")[0].id = "firstPhotographer";
+		document.getElementsByClassName("thmb-photographer")[0].firstChild.focus();
 	}
 
 }
-
 
 function getAllPhotographers() {
 	return PhotographersDatas.findAllPhotographers();
 }
 
-function getPhotographer(id) {
-	return PhotographersDatas.findPhotographerById(id);
-}
 
-function getAllMediasByPhotographer(id) {
-	return MediaDatas.findMediasByPhotographer(id);
-}
-
-
-
-
-
-export {
-	initHome,
-}
+export { initHome }

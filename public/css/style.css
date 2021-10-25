@@ -1,4 +1,4 @@
-.modal-contact .contact, #sort-media, .btn {
+.modal-contact .contact, .galery__sort #galery-sort, .btn {
   background-color: #901C1C;
   border-radius: 5px;
   color: white;
@@ -50,11 +50,26 @@
   flex-direction: row;
 }
 
+#alert-success {
+  margin-left: 15px;
+  color: #2a5a12;
+}
+
 .tag {
   cursor: pointer;
 }
 a {
   text-decoration: none;
+}
+
+.goToContent {
+  opacity: 0;
+  width: max-content;
+  margin: auto;
+  font-weight: 100;
+}
+.goToContent:focus {
+  opacity: 1;
 }
 
 h1 {
@@ -99,6 +114,17 @@ h2 {
   text-align: center;
 }
 
+.fa-heart {
+  padding-top: 2px;
+  margin-left: 5px;
+}
+
+.tag-list {
+  display: flex;
+  list-style: none;
+  height: 100%;
+}
+
 .profilePic--rounded {
   align-self: center;
   height: 250px;
@@ -123,6 +149,9 @@ h2 {
   margin-top: 25px;
   margin-bottom: 0;
   color: #D3573C;
+}
+.profile__description ul {
+  padding-left: 0;
 }
 .profile__description .localisation {
   font-size: 1.5rem;
@@ -207,28 +236,11 @@ h2 {
   }
 }
 
-#sort-media option {
+.galery__sort {
+  margin-left: 30px;
+}
+.galery__sort #galery-sort option {
   background-color: #901C1C;
-}
-
-.galery-sort btn {
-  border-radius: 0;
-  font-size: 16px;
-  text-align: left;
-  padding: 5px 10px;
-  width: 150px;
-  position: relative;
-}
-.galery-sort btn::after {
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid #aaa;
-  content: " ";
-  position: absolute;
-  right: 5px;
-  top: 10px;
 }
 
 .blur {
@@ -293,10 +305,6 @@ h2 {
   transition: all 0.3s ease-in-out;
 }
 
-.modal {
-  z-index: 1;
-}
-
 .complementary__infos {
   position: fixed;
   bottom: 0px;
@@ -349,8 +357,8 @@ h2 {
 }
 
 .actionDisabled {
-  cursor: not-allowed;
-  color: #808080;
+  cursor: not-allowed !important;
+  color: #808080 !important;
 }
 
 .glow-error {
@@ -359,8 +367,21 @@ h2 {
   border-width: 3px;
 }
 
-.error {
-  color: black;
+.disableOnPage {
+  z-index: -1;
+  display: none;
+  visibility: hidden;
+}
+
+.lightbox_cta {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #901C1C;
+  font-size: 5.2rem;
 }
 
 .modal-contact .contact {
@@ -379,10 +400,15 @@ h2 {
   color: #fff;
   font-size: 2.5rem;
 }
-.modal-contact .contact__form label {
+.modal-contact .contact__form label:not(.error) {
   font-size: 1.2rem;
   color: #312e2e;
   font-weight: 100;
+}
+.modal-contact .contact__form .error {
+  color: #7d0000 !important;
+  font-weight: 100;
+  margin-bottom: 10px;
 }
 .modal-contact .contact__form input,
 .modal-contact .contact__form textarea {
@@ -456,6 +482,12 @@ h2 {
   }
 }
 
+.close {
+  cursor: pointer;
+  background-color: unset;
+  border: unset;
+}
+
 .photographers-list {
   width: 100%;
   display: flex;
@@ -511,6 +543,10 @@ h2 {
   height: 100%;
 }
 
+.noVisible {
+  opacity: 0;
+}
+
 .lightbox {
   display: grid;
   grid-template-columns: 0.5fr repeat(3, 1fr) 0.5fr;
@@ -536,7 +572,14 @@ h2 {
 .lightbox__action--close {
   grid-area: 1/5/2/6;
   cursor: pointer;
-  height: max-content;
+  height: max-content !important;
+}
+.lightbox__action--close #close {
+  cursor: pointer;
+  color: #901C1C !important;
+  font-size: 5.2rem !important;
+  background-color: unset;
+  border: unset;
 }
 .lightbox__media {
   grid-area: 1/2/6/5;
@@ -561,6 +604,10 @@ h2 {
   }
   .lightbox .lightbox_cta {
     font-size: 3rem;
+  }
+  .lightbox .lightbox_cta #close {
+    color: #901C1C;
+    font-size: 5.2rem;
   }
   .lightbox__media {
     overflow: hidden;
@@ -619,6 +666,9 @@ html {
 
 * {
   font-family: "DM Sans", sans-serif;
+}
+*:focus {
+  border: 3.5px solid red;
 }
 
 .main {
