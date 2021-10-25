@@ -63,7 +63,7 @@ const fillPhotographerProfile = (photographer) => {
 	profilePicContainer.innerHTML = '';
 	let profilePic = document.createElement('img');
 	profilePic.className = 'profilePic--rounded';
-	profilePic.src = "/../public/images/Photographers_ID_Photos/" + photographer.profilePic;
+	profilePic.src = "../images/Photographers_ID_Photos/" + photographer.profilePic;
 	profilePic.alt = photographer.username;
 	profilePicContainer.appendChild(profilePic);
 
